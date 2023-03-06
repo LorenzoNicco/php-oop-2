@@ -30,6 +30,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>PHP OOP 2</title>
     </head>
     <body>
@@ -72,7 +73,22 @@
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Prodotto per: <?php echo $product->target; ?>
+                        Prodotto per: 
+                        <?php 
+                            if ($product->target == 'gatto') {
+                        ?>
+                                <i class="fa-solid fa-cat"></i>
+                        <?php
+                            }
+                            elseif ($product->target == 'cane') {
+                        ?>
+                                <i class="fa-solid fa-dog"></i>
+                        <?php
+                            }
+                        ?>
+                    </li>
+                    <li class="list-group-item">
+                        Tipo di prodotto: <?php echo $product->type; ?>
                     </li>
                     <li class="list-group-item">
                         Quantità: <?php echo $product->units; ?>

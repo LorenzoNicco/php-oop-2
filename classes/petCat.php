@@ -2,6 +2,7 @@
     class Cat extends Product {
         public $price;
         public $name;
+        public $pic;
 
         public function setPrice() {
             if ($this->type == 'cibo') {
