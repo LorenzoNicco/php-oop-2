@@ -1,16 +1,17 @@
 <?php
 
-    require_once __DIR__ .'/categoyPet.php';
+    require_once __DIR__ .'/petCat.php';
+    require_once __DIR__ .'/petDog.php';
     
     class Product {
-        private $target;
+        public $target;
         public $type;
-        public $model;
+        public $units;
 
-        function __construct($_target, $_type, $_model) {
+        function __construct(string $_target, string $_type, int $_units) {
             $this->target = $_target;
             $this->type = $_type;
-            $this->model = $_model;
+            $this->units = $_units;
         }
 
     }

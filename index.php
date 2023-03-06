@@ -1,5 +1,19 @@
 <?php
     require_once __DIR__ .'/classes/product.php';
+    require_once __DIR__ .'/classes/petDog.php';
+    require_once __DIR__ .'/classes/petCat.php';
+
+    $prodottoCane = new Dog('cane', 'cuccia', 2);
+
+    $prodottoCane->setPrice();
+
+    var_dump($prodottoCane);
+
+    $prodottoGatto = new Cat('cat', 'cuccia', 2);
+
+    $prodottoGatto->setPrice();
+
+    var_dump($prodottoGatto);
 ?>
 
 <!DOCTYPE html>
