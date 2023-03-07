@@ -4,14 +4,19 @@
     
     class House extends Product {
         use Name;
-        
+
         public $height;
 
         function __construct($price, $img, $units, $category, $height)
         {
             parent::__construct($price, $img, $units, $category);
             
-            $this->height = $height;
+            if (is_int($height)) {
+                $this->height = $height;
+            }
+            else {
+                throw new Exception('Inserisci una stringa.');
+            }
         }
     }
 ?>

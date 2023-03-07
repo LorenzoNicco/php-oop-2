@@ -1,13 +1,18 @@
 <?php
     trait Name {
-        public $name;
+        protected $name;
 
         public function getName() {
-            $this->name;
+            return $this->name;
         }
 
         public function setName($name) {
-            $this->name = $name;
+            if (is_string($name)) {
+                $this->name = $name;
+            }
+            else {
+                throw new Exception('Il nome deve essere una stringa una stringa.');
+            }
         }
     }
 ?>

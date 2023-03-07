@@ -33,11 +33,23 @@
     $prodotti = [];
 
     $prodotti[] = new Toy(8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani, 'gomma');
-    $prodotti[0]->setName('Pallina di gomma');
+    try {
+        $prodotti[0]->setName('Pallina di gomma');
+    } catch (Exception $e) {
+        echo '<h5>'.$e->getMessage().'</h5>';
+    }
     $prodotti[] = new House(25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti, 150);
-    $prodotti[1]->setName('Castello per gatti');
+    try {
+        $prodotti[1]->setName('Castello per gatti');
+    } catch (Exception $e) {
+        echo '<h5>'.$e->getMessage().'</h5>';
+    }
     $prodotti[] = new Food(3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti, '07/03/2025');
-    $prodotti[2]->setName('Cibo per gatti');
+    try {
+        $prodotti[2]->setName('Cibo per gatti');
+    } catch (Exception $e) {
+        echo '<h5>'.$e->getMessage().'</h5>';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +145,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">
-                                <?php echo $product->name; ?>
+                                <?php echo $product->getName(); ?>
                             </h5>
                         </div>
 
@@ -160,7 +172,7 @@
                                 elseif (is_a($product, 'Toy')) {
                             ?>
                             <li class="list-group-item">
-                                Materiale: <?php echo $product->material; ?>
+                                Materiale: <?php  echo $product->material; ?>
                             </li>
                             <?php
                                 }

@@ -4,14 +4,19 @@
     
     class Food extends Product {
         use Name;
-        
+
         public $expiringDate;
 
         function __construct($price, $img, $units, $category, $expiringDate)
         {
             parent::__construct($price, $img, $units, $category);
             
-            $this->expiringDate = $expiringDate;
+            if (is_string($expiringDate)) {
+                $this->expiringDate = $expiringDate;
+            }
+            else {
+                throw new Exception('Inserisci una stringa.');
+            }
         }
     }
 ?>
