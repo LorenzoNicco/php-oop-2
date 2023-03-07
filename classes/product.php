@@ -17,16 +17,16 @@
     // }
 
     require_once __DIR__ .'/category.php';
+    require_once __DIR__ .'/../traits/nameTrait.php';
 
     class Product {
-        public $name;
+        use Name;
         public $price;
         public $img;
         public $units;
         public $category;
 
-        function __construct($name, $price, $img, $units, $category) {
-            $this->name = $name;
+        function __construct($price, $img, $units, $category) {
             $this->price = $price * $units;
             $this->img = $img;
             $this->units = $units;

@@ -32,9 +32,12 @@
 
     $prodotti = [];
 
-    $prodotti[] = new Toy('Pallina di gomma', 8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani, 'gomma');
-    $prodotti[] = new House('Castello per gatti', 25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti, 150);
-    $prodotti[] = new Food('Cibo per gatti', 3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti, '07/03/2025');
+    $prodotti[] = new Toy(8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani, 'gomma');
+    $prodotti[0]->setName('Pallina di gomma');
+    $prodotti[] = new House(25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti, 150);
+    $prodotti[1]->setName('Castello per gatti');
+    $prodotti[] = new Food(3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti, '07/03/2025');
+    $prodotti[2]->setName('Cibo per gatti');
 ?>
 
 <!DOCTYPE html>
