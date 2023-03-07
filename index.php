@@ -1,25 +1,36 @@
 <?php
     require_once __DIR__ .'/classes/product.php';
-    require_once __DIR__ .'/classes/petDog.php';
-    require_once __DIR__ .'/classes/petCat.php';
+    // require_once __DIR__ .'/classes/petDog.php';
+    // require_once __DIR__ .'/classes/petCat.php';
 
-    $dogBall = new Dog('cane', 'gioco', 1);
-    $dogBall->setNameAndPic();
-    $dogBall->setPrice();
+    // $dogBall = new Dog('cane', 'gioco', 1);
+    // $dogBall->setNameAndPic();
+    // $dogBall->setPrice();
 
-    $catHouse = new Cat('gatto', 'cuccia', 1);
-    $catHouse->setNameAndPic();
-    $catHouse->setPrice();
+    // $catHouse = new Cat('gatto', 'cuccia', 1);
+    // $catHouse->setNameAndPic();
+    // $catHouse->setPrice();
 
-    $dogFood = new Dog('cane', 'cibo', 1);
-    $dogFood->setNameAndPic();
-    $dogFood->setPrice();
+    // $dogFood = new Dog('cane', 'cibo', 1);
+    // $dogFood->setNameAndPic();
+    // $dogFood->setPrice();
 
-    $catFood = new Cat('gatto', 'cibo', 1);
-    $catFood->setNameAndPic();
-    $catFood->setPrice();
+    // $catFood = new Cat('gatto', 'cibo', 1);
+    // $catFood->setNameAndPic();
+    // $catFood->setPrice();
 
-    $products = [$dogBall, $catHouse, $dogFood, $catFood];
+    // $products = [$dogBall, $catHouse, $dogFood, $catFood];  
+
+    require_once __DIR__ .'/classes/category.php';
+
+    $categoriaCani = new Category('cani', '&#128054;');
+    $categoriaGatti = new Category('gatti', '&#128049;');
+
+    $prodotti = [];
+
+    $prodotti[] = new Product('Pallina di gomma', 8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani);
+    $prodotti[] = new Product('Castello per gatti', 25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti);
+    $prodotti[] = new Product('Cibo per gatti', 3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti);
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +69,7 @@
         </div> -->
 
         <!-- versione 2 ---------------------------------------------------------------------------------------->
-        <?php 
+        <!-- <?php 
             foreach ($products as $product) {
 
         ?>
@@ -100,6 +111,44 @@
             </div>
         <?php
             }
-        ?>
+        ?> -->
+
+        <!-- versione 3 --------------------------------------------------------------------->
+        <main>
+            <div class="container">
+                <div class="row">
+                <?php 
+                foreach ($prodotti as $product) {
+
+                ?>
+                    <div class="col-4 card" style="width: 18rem;">
+                        <img src=<?php echo $product->img ?> class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?php echo $product->name; ?>
+                            </h5>
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Prodotto per: 
+                                <?php echo $product->category->icon; ?>
+                                <?php echo $product->category->name; ?>
+                            </li>
+                            <li class="list-group-item">
+                                Quantità: <?php echo $product->units; ?>
+                            </li>
+                            <li class="list-group-item">
+                                Prezzo: <?php echo $product->price; ?>
+                            </li>
+                        </ul>
+                    </div>
+                <?php
+                    }
+                ?>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

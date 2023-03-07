@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ .'/product.php';
     class Cat extends Product {
         public $price;
         public $name;
