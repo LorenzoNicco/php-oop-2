@@ -11,7 +11,7 @@
                 $this->name = $name;
             }
             else {
-                throw new Exception('Il nome deve essere una stringa una stringa.');
+                throw new Exception('Il nome deve essere una stringa.');
             }
         }
     }
