@@ -22,15 +22,19 @@
     // $products = [$dogBall, $catHouse, $dogFood, $catFood];  
 
     require_once __DIR__ .'/classes/category.php';
+    require_once __DIR__ .'/classes/food.php';
+    require_once __DIR__ .'/classes/house.php';
+    require_once __DIR__ .'/classes/toy.php';
+
 
     $categoriaCani = new Category('cani', '&#128054;');
     $categoriaGatti = new Category('gatti', '&#128049;');
 
     $prodotti = [];
 
-    $prodotti[] = new Product('Pallina di gomma', 8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani);
-    $prodotti[] = new Product('Castello per gatti', 25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti);
-    $prodotti[] = new Product('Cibo per gatti', 3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti);
+    $prodotti[] = new Toy('Pallina di gomma', 8, 'https://www.stockvault.net/data/2016/05/19/198785/preview16.jpg', 10, $categoriaCani, 'gomma');
+    $prodotti[] = new House('Castello per gatti', 25.99, 'https://images.pexels.com/photos/11533580/pexels-photo-11533580.jpeg', 3, $categoriaGatti, 150);
+    $prodotti[] = new Food('Cibo per gatti', 3.50, 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Cat_and_Cat_Foods.jpg', 8, $categoriaGatti, '07/03/2025');
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +120,7 @@
         <!-- versione 3 --------------------------------------------------------------------->
         <main>
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-between">
                 <?php 
                 foreach ($prodotti as $product) {
 
@@ -140,8 +144,31 @@
                                 Quantità: <?php echo $product->units; ?>
                             </li>
                             <li class="list-group-item">
-                                Prezzo: <?php echo $product->price; ?>
+                                Prezzo: <?php echo $product->price; ?> euro
                             </li>
+                            <?php
+                                if (is_a($product, 'Food')) {
+                            ?>
+                            <li class="list-group-item">
+                                Data di scadenza: <?php echo $product->expiringDate; ?>
+                            </li>
+                            <?php
+                                }
+                                elseif (is_a($product, 'Toy')) {
+                            ?>
+                            <li class="list-group-item">
+                                Materiale: <?php echo $product->material; ?>
+                            </li>
+                            <?php
+                                }
+                                elseif (is_a($product, 'House')) {
+                            ?>
+                            <li class="list-group-item">
+                                Altezza: <?php echo $product->height; ?> cm
+                            </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                     </div>
                 <?php

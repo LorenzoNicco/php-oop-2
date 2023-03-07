@@ -27,7 +27,7 @@
 
         function __construct($name, $price, $img, $units, $category) {
             $this->name = $name;
-            $this->price = $price;
+            $this->price = $price * $units;
             $this->img = $img;
             $this->units = $units;
             $this->category = $category;
